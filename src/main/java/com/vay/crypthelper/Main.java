@@ -1,12 +1,1 @@
-package com.vay.crypthelper;
-
-import com.vay.crypthelper.handler.EncryptFileHandler;
-
-public class Main {
-	
-	public static void main(String[] args) throws Exception {
-		
-		EncryptFileHandler fileHandler = new EncryptFileHandler();
-		fileHandler.encryptFile();
-	}
-}
+灡捫慧攠捯洮癡礮捲祰瑨敬灥爻ഊഊ業灯牴⁣潭⹶慹⹣特灴桥汰敲⹨慮摬敲⹅湣特灴䙩汥䡡湤汥爻ഊഊ灵扬楣⁣污獳⁍慩渠笍ਉഊ॰畢汩挠獴慴楣⁶潩搠浡楮⡓瑲楮杛崠慲杳⤠瑨牯睳⁅硣数瑩潮⁻ഊउഊउ䕮捲祰瑆楬效慮摬敲⁦楬效慮摬敲‽⁮敷⁅湣特灴䙩汥䡡湤汥爨⤻ഊउ晩汥䡡湤汥爮敮捲祰瑆楬攨⤻ഊॽഊ納�

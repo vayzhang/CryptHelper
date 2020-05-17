@@ -2,11 +2,7 @@ package com.vay.crypthelper.event;
 
 import java.io.IOException;
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Element;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.Phrase;
+import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.ColumnText;
 import com.itextpdf.text.pdf.GrayColor;
@@ -49,29 +45,40 @@ public class WaterMarkPageEvent extends PdfPageEventHelper {
 		}
     }
 
-    @Override
-    public void onEndPage(PdfWriter writer, Document document) {
-    	
-    	PdfContentByte canvas ;
-    	PdfGState gstate = new PdfGState();
-    	gstate.setFillOpacity(this.opacity);
-    	for(int i=0; i<= this.ySize; i++) {
-    		for(int j=0; j<= this.xSize; j++) {
-    			canvas = writer.getDirectContent();
-    			//writer.getDirectContentUnder()
-    			canvas.setGState(gstate);
-    			 ColumnText.showTextAligned(canvas,
-    		                Element.ALIGN_CENTER, new Phrase(waterMark, FONT),
-    		                (50.5f + i*300), (42f + j*300), writer.getPageNumber() % 2 == 1 ? 45 : -45);
-        	}
-    	}
-//        ColumnText.showTextAligned(writer.getDirectContentUnder(),
-//                Element.ALIGN_CENTER, new Phrase(waterMark, FONT),
-//                297.5f, 421, writer.getPageNumber() % 2 == 1 ? 45 : -45);
-        
-//        ColumnText.showTextAligned(writer.getDirectContentUnder(),
-//                Element.ALIGN_CENTER, new Phrase(waterMark, FONT),
-//                297.5f, 421, writer.getPageNumber() % 2 == 1 ? 45 : -45);
-        
-    }
+	@Override
+	public void onEndPage(PdfWriter writer, Document document) {
+
+		PdfContentByte canvas;
+		PdfGState gstate = new PdfGState();
+		gstate.setFillOpacity(this.opacity);
+
+		Rectangle rectangle = document.getPageSize();
+
+		float perWidth = rectangle.getWidth()/(xSize-1);
+		float perHeight = rectangle.getHeight()/(ySize-1);
+
+		for(int i=0; i<= this.ySize; i++) {
+			for(int j=0; j<= this.xSize; j++) {
+				canvas = writer.getDirectContent();
+				//writer.getDirectContentUnder()
+				canvas.setGState(gstate);
+				ColumnText.showTextAligned(canvas,
+						Element.ALIGN_CENTER, new Phrase(waterMark, FONT),
+						(i*perWidth), (j*perHeight), writer.getPageNumber() % 2 == 1 ? 45 : -45);
+			}
+		}
+
+//		for (int i = 0; i <= this.ySize; i++) {
+//			for (int j = 0; j <= this.xSize; j++) {
+//				canvas = writer.getDirectContent();
+//				//writer.getDirectContentUnder()
+//				canvas.setGState(gstate);
+//				ColumnText.showTextAligned(canvas,
+//						Element.ALIGN_CENTER, new Phrase(waterMark, FONT),
+//						(left + i * 300), (42f + j * 300), writer.getPageNumber() % 2 == 1 ? 45 : -45);
+//			}
+//		}
+
+
+	}
 }

@@ -12,7 +12,7 @@ import java.util.Properties;
 import com.vay.crypthelper.constant.CryptFileType;
 import com.vay.crypthelper.event.WaterMarkerStyle;
 import com.vay.crypthelper.utils.FileUtils;
-import com.vay.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.PdfWriter;
 
 public class EncryptFileHandler implements IFileHandler {
 
