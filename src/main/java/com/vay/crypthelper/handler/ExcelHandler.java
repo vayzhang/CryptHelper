@@ -1,4 +1,4 @@
-package com.infinitus.crypthelper.handler;
+package com.vay.crypthelper.handler;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -22,7 +22,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import com.infinitus.crypthelper.constant.CryptFileType;
+import com.vay.crypthelper.constant.CryptFileType;
 
 public class ExcelHandler {
 
